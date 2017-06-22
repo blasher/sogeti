@@ -7,12 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
                 <div class="panel-body">
-                    You are logged in!
-		    <br />
-		    <h4>Menu</h4>
-                    <ol>
-		      <li><a href="/fetchNYTimes">Fetch NY Times Data</a></li>
-		    </ol>
+                    <pre>{{ $content }}</pre>
+                    <br /><br />
+		    <a href="/">Back</a>
                 </div>
             </div>
         </div>
