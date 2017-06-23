@@ -15,11 +15,16 @@ class NYTimesFetchController extends Controller
     public function index()
     {
 //      $docs = print_r( $this->guzzleNYTimes(), true);
-        $docs = print_r( $this->fetchNYTimes(), true);
+        $docs = $this->fetchNYTimes();
 
-//      $content = $this->storeNYTimes();
+        foreach($docs as $doc)
+	{
+            $this->storeNYTimesArticle($doc);
+        }
 
-        return view('page', ['content' => $docs]);
+        $articles = NYTimesArticle::all();
+
+        return view('articles', ['articles' => $articles]);
     }
 
     /**
@@ -77,76 +82,18 @@ class NYTimesFetchController extends Controller
     /**
      * Store NY Times data in DB.
      *
-     * @param $docs
+     * @param $doc
      */
-    public function storeNYTimes()
+    public function storeNYTimesArticle( $doc )
     {
-        
+        $article = NYTimesArticle::where('url', $doc->web_url)->first();
+        if( is_null( $article ) )
+	{  $article = new NYTimesArticle();
+	}
+
+        $article->headline = $doc->headline->main;
+        $article->url      = $doc->web_url;
+        $article->save();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
