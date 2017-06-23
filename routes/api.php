@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware(['auth:api'])->group(function () {
+    Route::get('/articles',       'APIController@index');
+    Route::get('/articles/all',   'APIController@index');
+    Route::get('/articles/first', 'APIController@index');
+    Route::get('/articles/last',  'APIController@index');
+    Route::get('/articles/{id}',  'APIController@index');
+});

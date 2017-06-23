@@ -13,6 +13,7 @@
                   <ol>
                     <li><a href="/fetchNYTimes">Fetch and store NY Times Data</a></li>
                     <li><a href="/updates">Updates Hourly and via API call</a></li>
+                    <li><a href="/passport">Passport</a></li>
                     <li><a href="/api_calls">API calls</a></li>
                     <li><a href="/testcases">TestCases</a></li>
                     <li><a href="/testcases">Virtual Server</a></li>

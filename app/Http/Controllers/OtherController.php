@@ -44,6 +44,24 @@ EOT;
         return view('page', ['page_content' => $content]);
     }
 
+
+    /**
+     * Show the passport dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function passport()
+    {
+        $content = <<<EOT
+<passport-clients></passport-clients>
+<passport-authorized-clients></passport-authorized-clients>
+<passport-personal-access-tokens></passport-personal-access-tokens>
+EOT;
+
+        return view('page', ['page_content' => $content]);
+    }
+
+
     /**
      * Show the api_call dashboard.
      *
@@ -53,10 +71,10 @@ EOT;
     {
         $content = <<<EOT
 <ol>
-<li><a href="/articles/all">/articles/all</a></li>
-<li><a href="/articles/first">/articles/first</a></li>
-<li><a href="/articles/last">/articles/last</a></li>
-<li><a href="/articles/5">/articles/5</a></li>
+<li><a href="api/articles/all">/api/articles/all</a></li>
+<li><a href="api/articles/first">/api/articles/first</a></li>
+<li><a href="api/articles/last">/api/articles/last</a></li>
+<li><a href="api/articles/5">/api/articles/5</a></li>
 </ol>
 EOT;
 
