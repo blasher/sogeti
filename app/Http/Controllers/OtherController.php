@@ -41,11 +41,28 @@ class OtherController extends Controller
 would you do that? <br /><br /><span style="font-style:italic; color:#3097D1">Once again, pull the code out of the controller, create a service provider with that code, and replace the controller code with calls to the service provider.  Then in the API controller, add calls to the service provider.</span></li>
 </ol>
 EOT;
-
-
         return view('page', ['page_content' => $content]);
     }
 
+    /**
+     * Show the api_call dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function api_calls()
+    {
+        $content = <<<EOT
+<ol>
+<li><a href="/articles/all">/articles/all</a></li>
+<li><a href="/articles/first">/articles/first</a></li>
+<li><a href="/articles/last">/articles/last</a></li>
+<li><a href="/articles/5">/articles/5</a></li>
+</ol>
+EOT;
+
+        return view('page', ['page_content' => $content]);
+    }
+    
     /**
      * Show the testcase dashboard.
      *

@@ -18,13 +18,14 @@ Route::get('/home',  'HomeController@index')->name('home');
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/fetchNYTimes', 'NYTimesFetchController@index');
+    Route::get('/fetchNYTimes',  'NYTimesFetchController@index');
+    Route::get('/updates',       'OtherController@updates');
+    Route::get('/api_calls',     'OtherController@api_calls');
+    Route::get('/testcases',     'OtherController@testcases');
+    Route::get('/stackoverflow', 'OtherController@stackoverflow');
+    Route::get('/github',        'OtherController@github');
+    Route::get('/disclaimer',    'OtherController@disclaimer');
 });
 
-Route::get('/updates',       'OtherController@updates');
-Route::get('/testcases',     'OtherController@testcases');
-Route::get('/stackoverflow', 'OtherController@stackoverflow');
-Route::get('/github',        'OtherController@github');
-Route::get('/disclaimer',    'OtherController@disclaimer');
 
 
