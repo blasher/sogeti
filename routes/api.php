@@ -18,9 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware(['auth:api'])->group(function () {
+
+
+});
+
+
     Route::get('/articles',       'APIController@index');
     Route::get('/articles/all',   'APIController@index');
-    Route::get('/articles/first', 'APIController@index');
-    Route::get('/articles/last',  'APIController@index');
-    Route::get('/articles/{id}',  'APIController@index');
-});
+    Route::get('/articles/first', 'APIController@first');
+    Route::get('/articles/last',  'APIController@last');
+    Route::get('/articles/{id}',  'APIController@byId');
