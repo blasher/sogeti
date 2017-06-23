@@ -36,9 +36,9 @@ class OtherController extends Controller
     {
         $content = <<<EOT
 <ol>
-<li>If you wanted the database to be updated every hour, how would you trigger this data collection? <br /><br /><span style="font-style:italic; color:#0000cc">I would pull the code out of NYTimesArticleController.php, put it into a service provider, and of course, replace the code in the controller with calls to the code in the service provider. Then, simply set up a laravel task/shcedule to run every hour.  Alternatively, I could set up a cron that executes a php script with a few curl statements in that would first login to the site and then call the url for the NYTimes page.</span></li>
+<li>If you wanted the database to be updated every hour, how would you trigger this data collection? <br /><br /><span style="font-style:italic; color:#3097D1">I would pull the code out of NYTimesArticleController.php, put it into a service provider, and of course, replace the code in the controller with calls to the code in the service provider. Then, simply set up a laravel task/shcedule to run every hour.  Alternatively, I could set up a cron that executes a php script with a few curl statements in that would first login to the site and then call the url for the NYTimes page.</span></li>
 <li>If you wanted the database to be updated every time the user queried the API (question #3), how
-would you do that? <br /><br /><span style="font-style:italic; color:#0000cc">Once again, pull the code out of the controller, create a service provider with that code, and replace the controller code with calls to the service provider.  Then in the API controller, add calls to the service provider.</span></li>
+would you do that? <br /><br /><span style="font-style:italic; color:#3097D1">Once again, pull the code out of the controller, create a service provider with that code, and replace the controller code with calls to the service provider.  Then in the API controller, add calls to the service provider.</span></li>
 </ol>
 EOT;
 
